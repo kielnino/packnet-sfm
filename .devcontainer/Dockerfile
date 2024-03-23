@@ -8,6 +8,8 @@ ENV PYTORCH_VERSION=1.12.1+cu113
 ENV TORCHVISION_VERSION=0.13.1+cu113
 ENV TORCHAUDIO_VERSION=0.12.1
 
+ENV HOROVOD_GPU_OPERATIONS=NCCL
+
 ENV CUDNN_VERSION=8.2.1.32-1+cuda11.3
 ENV NCCL_VERSION=2.9.9-1+cuda11.3
 ENV DEBIAN_FRONTEND=noninteractive
@@ -40,29 +42,31 @@ RUN apt-get install -y \
 
 # Install extra packages (pip)
 RUN pip install                 \
-    tqdm==4.61.0                \
-    boto3==1.17.83              \
-    termcolor==1.1.0            \
-    pyyaml==5.4.1               \
-    wandb==0.10.31              \
+    tqdm==4.66.2                \
+    boto3==1.34.69              \
+    termcolor==2.4.0            \
+    pyyaml==6.0.1               \
+    wandb==0.16.4              \
     opencv-python==4.5.2.52     \
     flow_vis==0.1               \
     matplotlib==3.3.4           \
-    fire==0.4.0                 \
+    fire==0.6.0                 \
     pyquaternion==0.9.9         \
     pandas==1.1.5               \
     xarray==0.16.2              \
-    diskcache==5.2.1            \
-    tenacity==7.0.0             \
-    awscli==1.19.101            \
+    diskcache==5.6.3            \
+    tenacity==8.2.3             \
+    awscli==1.32.69            \
     ref==0.0.2.2                \
-    positional-encodings==4.0.0 \
-    einops==0.3.2               \
+    positional-encodings==6.0.3 \
+    einops==0.7.0               \
     wget==3.2                   \
-    kornia==0.6.8               \
+    kornia==0.7.2               \
     lpips==0.1.4                \
     scikit-image==0.19.3        \
-    timm==0.6.11
+    timm==0.9.16                \
+    yacs==0.1.8                 \
+    horovod==0.28.1
 
 # Create workspace folder
 RUN mkdir -p /workspace/experiments
