@@ -3,7 +3,11 @@
         "dockerfile": "Dockerfile"
     },
     "runArgs": [
+        "--ipc=host",
         "--gpus",
         "all"
+    ],
+    "mounts": [
+        "source=D:/docker_cache,target=/data,type=bind,consistency=cached"
     ]
 }

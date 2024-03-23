@@ -68,13 +68,5 @@ RUN pip install                 \
     yacs==0.1.8                 \
     horovod==0.28.1
 
-# Create workspace folder
-RUN mkdir -p /workspace/experiments
-RUN mkdir -p /workspace/${PROJECT}
-
-# Copy project to workspace folder
-WORKDIR /workspace/${PROJECT}
-COPY . /workspace/${PROJECT}
-
 # Set environment variables
-ENV PYTHONPATH="/workspace/${PROJECT}:$PYTHONPATH"
+ENV PYTHONPATH="/workspaces/${PROJECT}:$PYTHONPATH"
